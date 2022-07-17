@@ -20,7 +20,7 @@ infile | input JPEG image filename(s)
 Optional Argument | Description
 -- | --
 -h, --help | show this help message and exit
--p, --prettyprint | write metadata to stderr in a pretty format
+-p, --prettyprint | write metadata to stdout in a pretty format
 -a, --aliases | use "pretty print" aliases for CSV file headings
 -s, --silent | do not write progress to stderr
 -o OUTPUT, --output OUTPUT | filename to write CSV metadata output
@@ -59,7 +59,7 @@ Extract all EXIF metadata from specified JPEG image files.
 Argument | Type | Description
 -- | -- | --
 `infilenames` | list of strings | input JPEG image filenames
-`verbose` | bool | List files to stderr as they are processed
+`verbose` | bool | list files to stderr as they are processed
 
 Resulting class instance data attributes:
 
@@ -71,9 +71,7 @@ Attribute | Type | Description
 
 The type of each `exif_table` dictionary value is defined in the ["exif" library Data Types](https://exif.readthedocs.io/en/latest/api_reference.html#data-types) documentation.
 
-Raises:
-
-- exception `ExtractError`: call to underlying "exif" library metadata extraction failed
+Raises exception `ExtractError`: call to underlying "exif" library metadata extraction failed
 
 ### Method: `write_csv(outfile, use_aliases=False)`
 
@@ -86,7 +84,7 @@ use_aliases | bool | use prettified aliases for CSV headings
 
 ### Method: `pretty_print_exif(single_image_exif, outfile=sys.stdout)`
 
-Pretty Print EXIF metadata for a single image.
+Print EXIF metadata for a single image in a prettified format that replaces underscores with spaces and applies appropriate capitalization.
 
 Argument | Type | Description
 -- | -- | --

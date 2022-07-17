@@ -170,7 +170,8 @@ class ExifExtract:
 
     def pretty_print_exif(self, single_image_exif, outfile=sys.stdout):
         """
-        Pretty Print EXIF metadata for a single image.
+        Print EXIF metadata for a single image in a prettified format that
+        replaces underscores with spaces and applies appropriate capitalization.
 
         Args:
             single_image_exif: dictionary of EXIF data for an image
@@ -200,7 +201,7 @@ if __name__ == "__main__":
         "-p",
         "--prettyprint",
         action="store_true",
-        help="write metadata to stderr in a pretty format",
+        help="write metadata to stdout in a pretty format",
     )
     parser.add_argument(
         "-a",
